@@ -199,7 +199,8 @@ $input
     if echo -n "$clipboard_content" | xclip -selection clipboard 2>/dev/null; then
         clipboard_success=1
     # Try OSC 52 if xclip fails
-    elif [[ -n "$TERM" ]] && echo "$TERM" | grep -qE "(alacritty|kitty|wezterm|tmux)"; then
+    #elif [[ -n "$TERM" ]] && echo "$TERM" | grep -qE "(alacritty|kitty|wezterm|tmux|xterm-256color)"; then
+    elif [[ -n "$TERM" ]] || [[ -n "$SSH_TTY" ]]; then
         local encoded=$(echo -n "$clipboard_content" | base64 -w0)
         printf '\033]52;c;%s\033\\' "$encoded"
         clipboard_success=1

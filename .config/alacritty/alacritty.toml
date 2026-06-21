@@ -19,6 +19,7 @@
 [terminal]
     # Configuração do zsh como shell padrão
     shell = { program = "/bin/zsh", args = ["-l"] }
+    osc52 = "CopyPaste"   # ou "OnlyCopy" — confirme o valor padrão na sua versão
 
 [env]
     # Define a variável de ambiente TERM para garantir compatibilidade com aplicativos que dependem dela

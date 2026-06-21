@@ -21,6 +21,6 @@ fi
 # 2. Se após a tentativa do systemd o socket ainda não existir, usa o keychain
 if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
     if command -v keychain >/dev/null 2>&1; then
-        eval $(keychain --eval --quiet Viamar-GitHub)
+        eval $(keychain --eval --quiet builder-github)
     fi
 fi
